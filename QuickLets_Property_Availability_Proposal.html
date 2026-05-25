@@ -321,6 +321,7 @@ ul.oos li::before {
   color: var(--ember);
 }
 .contact-info { flex: 1; }
+.contact-info a { display: block; }
 .contact-name {
   font-family: 'Geist Mono', monospace; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
 .contact-role { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--ink); margin-bottom: 10px; letter-spacing: 0.04em; }
@@ -328,26 +329,37 @@ ul.oos li::before {
 .contact-card a:hover { color: var(--ember-lift); }
 
 /* ── TOC ─────────────────────────────────────────────── */
-.toc { margin: 40px 0; border: var(--rule); background: var(--paper); padding: 32px 40px; }
-.toc-label {
+.toc-divider {
+  background: var(--mist);
+  border-bottom: 1px solid var(--steel);
+  padding: 0;
+}
+.toc-divider-inner {
+  padding: 0 48px;
+  display: flex; flex-direction: column;
+}
+.toc-divider-label {
   font-family: 'Geist Mono', monospace;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--ink); margin-bottom: 20px;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ash); padding: 18px 0 14px;
+  border-bottom: 1px solid var(--steel);
 }
-.toc ol { list-style: none; padding: 0; counter-reset: toc-ctr; }
-.toc li {
-  counter-increment: toc-ctr;
-  display: flex; align-items: baseline; gap: 16px;
-  padding: 8px 0; border-bottom: var(--rule);
+.toc-divider ol {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: nowrap; gap: 0; overflow: hidden;
 }
-.toc li:last-child { border-bottom: none; }
-.toc li::before {
-  content: "0" counter(toc-ctr);
+.toc-divider li { display: flex; }
+.toc-divider a {
   font-family: 'Geist Mono', monospace;
-  font-size: 11px; color: var(--ember); flex-shrink: 0; width: 24px;
+  font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--smoke); text-decoration: none;
+  padding: 14px 16px; display: flex; align-items: center; gap: 7px;
+  border-right: 1px solid var(--steel);
+  transition: color .15s, background .15s;
+  white-space: nowrap;
 }
-.toc a { font-size: 15px; color: var(--ink); text-decoration: none; font-weight: 500; }
-.toc a:hover { color: var(--ember); }
+.toc-divider a:hover { color: var(--ink); background: var(--steel); }
+.toc-divider .toc-num { color: var(--ember); font-size: 9px; }
 
 /* ── Footer ──────────────────────────────────────────── */
 footer {
@@ -524,39 +536,49 @@ footer a:hover { color: var(--ember); }
   </div>
 </div>
 
-<!-- TOC -->
-<div class="page-section alt">
-  <div class="container" style="padding-top: 56px; padding-bottom: 56px;">
-    <div class="toc">
-      <div class="toc-label">Contents</div>
-      <ol>
-        <li><a href="#summary">Executive Summary</a></li>
-        <li><a href="#problem">Problem Statement</a></li>
-        <li><a href="#solution">Proposed Solution</a></li>
-        <li><a href="#technical">Technical Overview</a></li>
-        <li><a href="#delivery">Delivery &amp; Operation</a></li>
-        <li><a href="#pricing">Pricing and ROI</a></li>
-        <li><a href="#why-kvlr">Why KVLR Code?</a></li>
-        <li><a href="#ahead">Looking Ahead</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
-      </ol>
-    </div>
-  </div>
-</div>
-
 <!-- 01 EXECUTIVE SUMMARY -->
 <div class="page-section" id="summary">
   <div class="container">
     <div class="eyebrow">§ 01 - Executive Summary</div>
     <h2>The opportunity.</h2>
     <div class="rule"></div>
-    <div class="dark-box" style="background: var(--paper);">
-      <h3>Property Availability. Automated.</h3>
-      <p>QuickLets currently relies on manual WhatsApp outreach to confirm property availability with owners. As the portfolio grows, this creates a structural bottleneck - absorbing agent time, degrading CRM accuracy, and frustrating Property Owners with repeated contact.</p>
-      <p>KVLR Code proposes a purpose-built AI Agent that automates end-to-end availability checks: initiating WhatsApp conversations, capturing structured responses, and writing results directly back to the CRM - with human agents involved only when genuinely needed.</p>
+    <p class="lede">QuickLets currently relies on letting agents manually calling property owners to confirm availability - a process that is slow, inconsistent, and does not scale.</p>
+    <p style="font-size: 16px; line-height: 1.75; margin-bottom: 48px;">KVLR Code proposes a purpose-built AI Agent that initiates WhatsApp conversations with property owners, captures structured availability responses, and writes results directly back to the CRM - automatically, at scale, with agents involved only when genuinely needed.</p>
+
+    <h3 style="margin-bottom: 16px;">Pricing and ROI</h3>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 0 auto 48px; max-width: 720px; background: var(--steel); border: 1px solid var(--steel);">
+      <div style="background: var(--mist); padding: 24px 20px; text-align: center;">
+        <div style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 600; color: var(--ember); margin-bottom: 4px;">€ 9,000</div>
+        <div style="font-size: 12px; color: var(--ash);">One-time setup · Ex. VAT</div>
+      </div>
+      <div style="background: var(--mist); padding: 24px 20px; text-align: center;">
+        <div style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 600; color: var(--ember); margin-bottom: 4px;">€ 1,200</div>
+        <div style="font-size: 12px; color: var(--ash);">Per month ongoing · Ex. VAT</div>
+      </div>
+      <div style="background: var(--mist); padding: 24px 20px; text-align: center;">
+        <div style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 4px;">~ 6 wks</div>
+        <div style="font-size: 12px; color: var(--ash);">Setup cost payback period</div>
+      </div>
+      <div style="background: var(--coal); padding: 24px 20px; text-align: center;">
+        <div style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 600; color: var(--ember); margin-bottom: 4px;">194%</div>
+        <div style="font-size: 12px; color: rgba(245,247,250,0.5);">Year 1 ROI</div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom: 16px; text-align: left;">In this proposal</h3>
+    <div style="display: flex; justify-content: stretch; flex-wrap: nowrap; gap: 0; border: 1px solid var(--steel); overflow: hidden; margin-bottom: 0; width: 100%;">
+      <a href="#problem" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">02</span>Problem</a>
+      <a href="#solution" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">03</span>Solution</a>
+      <a href="#technical" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">04</span>Technical</a>
+      <a href="#delivery" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">05</span>Delivery</a>
+      <a href="#pricing" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">06</span>Pricing &amp; ROI</a>
+      <a href="#why-kvlr" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">07</span>Why KVLR Code?</a>
+      <a href="#ahead" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; border-right:1px solid var(--steel); white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">08</span>Looking Ahead</a>
+      <a href="#conclusion" style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--smoke); text-decoration:none; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:7px; white-space:nowrap; flex:1;"><span style="color:var(--ember);font-size:9px;">09</span>Conclusion</a>
     </div>
   </div>
 </div>
+
 
 <!-- 02 PROBLEM -->
 <div class="page-section alt" id="problem">
@@ -565,8 +587,8 @@ footer a:hover { color: var(--ember); }
     <h2>A structural bottleneck.</h2>
     <div class="rule"></div>
     <p class="lede">QuickLets relies on manual outreach to confirm property availability - a process that works, but has become a ceiling on growth. As the portfolio expands, the overhead scales linearly with it.</p>
-    <p>In practice, agents spend a significant share of their day initiating individual WhatsApp conversations, chasing unanswered messages, transcribing replies, and updating the CRM by hand. The cost is felt across three dimensions:</p>
-    <div class="card-grid">
+    <p class="lede">In practice, agents spend a significant share of their day placing individual calls to property owners, chasing unanswered calls, transcribing responses, and updating the CRM by hand. The cost is felt across three dimensions:</p>
+    <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
       <div class="card">
         <div class="card-num">01 - Capacity</div>
         <h4>Agent time</h4>
@@ -582,6 +604,11 @@ footer a:hover { color: var(--ember); }
         <h4>CRM trust</h4>
         <p>Manual updates introduce inconsistencies and delays. The CRM - which should be the single source of truth - ends up trailing the reality on the ground.</p>
       </div>
+      <div class="card">
+        <div class="card-num">04 - Experience</div>
+        <h4>Owner friction</h4>
+        <p>Property owners receive repeated, uncoordinated calls asking the same questions. This erodes trust, strains the relationship, and risks disengagement from owners who feel their time isn't respected.</p>
+      </div>
     </div>
     <p>The underlying issue is not the tooling but the absence of a structured, automated layer between QuickLets, the Property Owner, and the CRM. That gap is what this proposal addresses.</p>
   </div>
@@ -594,7 +621,7 @@ footer a:hover { color: var(--ember); }
     <h2>A purpose-built AI agent.</h2>
     <div class="rule"></div>
     <p class="lede">KVLR Code proposes the design, build, and deployment of an AI Agent that automates WhatsApp outreach to handle Property Owner availability checks end-to-end - and synchronises the results back into QuickLets' CRM.</p>
-    <p>The solution operates as a structured, three-stage workflow:</p>
+    <p class="lede">The solution operates as a structured, three-stage workflow:</p>
     <div class="workflow">
       <div class="step">
         <div class="step-num">01</div>
@@ -607,7 +634,7 @@ footer a:hover { color: var(--ember); }
         <div class="step-num">02</div>
         <div class="step-body">
           <h4>Conversational data capture</h4>
-          <p>The AI Agent guides the owner through a short, natural exchange to confirm whether the property is still available, surface any changes in price or conditions, and capture free-text notes where relevant. Conversations are designed to feel human, not robotic. Any case the system cannot confidently resolve is escalated to a live agent.</p>
+          <p>The AI Agent guides the owner through a short, natural exchange to confirm whether the property is still available, surface any changes in price or conditions, and capture free-text notes where relevant. Conversations are designed to feel human, not robotic. Any case the system cannot confidently resolve is passed to a human agent to handle manually.</p>
         </div>
       </div>
       <div class="step">
@@ -627,7 +654,7 @@ footer a:hover { color: var(--ember); }
     <div class="eyebrow">§ 04 - Technical Overview</div>
     <h2>Architecture &amp; design.</h2>
     <div class="rule"></div>
-    <p class="lede">An event-driven service sitting between two external systems - WhatsApp and QuickLets' CRM. Narrow in scope, high in leverage. Three functional pillars, with security and governance running across all of them.</p>
+    <p class="lede">The agent is built as a focused, event-driven service that sits between two external systems - WhatsApp and QuickLets' CRM. It is deliberately narrow in scope and high in leverage, organised around three functional pillars with security and governance embedded across all of them.</p>
 
     <div style="margin: 0 0 48px;">
       <img src="solution-architecture.png" alt="Solution Architecture" style="width: 100%; height: auto; display: block; border: 1px solid var(--steel);">
@@ -647,7 +674,7 @@ footer a:hover { color: var(--ember); }
     <p>Where an owner's reply materially contradicts the current CRM state, the agent does not silently overwrite the record. It flags the conversation for manual review with full context attached - protecting data integrity in exactly the cases where a wrong automatic update is most costly.</p>
 
     <h3>02 - CRM Integration</h3>
-    <p>The CRM remains the single source of truth. A dedicated integration adapter reads from it to drive outreach and writes back to it as conversations resolve. Every completed conversation produces a structured update including:</p>
+    <p>The CRM remains the single source of truth. Integration is handled through a newly built API layer, purpose-built to ensure a clean and maintainable connection between the agent and QuickLets' existing systems. A dedicated integration adapter reads from the CRM to drive outreach and writes back to it as conversations resolve. Every completed conversation produces a structured update including:</p>
     <ul class="styled">
       <li>Availability status (available / not available / available later / no reply)</li>
       <li>Available-from date where captured</li>
@@ -707,18 +734,18 @@ footer a:hover { color: var(--ember); }
     </table>
 
     <h3>Out of scope</h3>
-    <p>The following are explicitly not included in this proposal:</p>
+    <p>The following are not included in this proposal. Where relevant, KVLR Code is available to support with additional building and assistance under a separate quotation.</p>
     <ul class="oos">
-      <li>CRM-side build: availability status model, custom fields, confidence calculation, restriction flags, UI changes</li>
+      <li>CRM-side build: availability status model, custom fields, confidence calculation, restriction flags, and UI changes</li>
       <li>Role-based contact visibility rules governing which staff can see or contact Property Owners</li>
       <li>Listing-agent ownership model and edit-permission framework</li>
       <li>Internal verification task assignment prior to AI outreach</li>
       <li>CRM dashboards, list views, badges, and KPI scorecards</li>
       <li>Owner self-service portal for direct availability updates</li>
       <li>Migration or back-population of historical availability data</li>
-      <li>Workflow automations beyond availability confirmation (referrals, follow-ups)</li>
-      <li>WhatsApp messaging fees - billed directly to QuickLets by META</li>
-      <li>Hosting costs - solution hosted on QuickLets' infrastructure</li>
+      <li>Workflow automations beyond availability confirmation - such as referrals and follow-ups</li>
+      <li>WhatsApp messaging fees, billed directly to QuickLets by META</li>
+      <li>Hosting costs, as the solution is hosted on QuickLets' own infrastructure</li>
     </ul>
   </div>
 </div>
@@ -790,7 +817,7 @@ footer a:hover { color: var(--ember); }
     <div class="pricing-grid">
       <div class="price-card">
         <div class="price-label">One-time · Ex. VAT</div>
-        <div class="price-value">€ 6,000</div>
+        <div class="price-value">€ 9,000</div>
         <div class="price-title">Integration &amp; Setup</div>
         <p class="price-desc">Design, build, CRM integration, WhatsApp integration, internal testing, UAT support, soft launch, and stabilisation.</p>
       </div>
@@ -808,7 +835,7 @@ footer a:hover { color: var(--ember); }
       <tr><td>Proposal validity</td><td><span class="terms-highlight">2 weeks</span> from receipt</td></tr>
       <tr><td>Payment - Setup</td><td><span class="terms-highlight">60%</span> within 2 weeks of contract signature · <span class="terms-highlight">40%</span> within 2 weeks of UAT handover</td></tr>
       <tr><td>Payment - Ongoing</td><td><span class="terms-highlight">100%</span> within 1 week of each month-end</td></tr>
-      <tr><td>Contract term</td><td>Initial term of <span class="terms-highlight">2 years</span>. Handover commences <span class="terms-highlight">6 months</span> before termination.</td></tr>
+      <tr><td>Contract term</td><td>Initial term of <span class="terms-highlight">2 years</span>. Handover to QuickLets commences <span class="terms-highlight">6 months</span> before the end of the term. At QuickLets' discretion, KVLR Code is available to continue maintaining and operating the solution beyond the initial term under a renewed arrangement.</td></tr>
       <tr><td>Change Requests</td><td>The ongoing monthly fee includes <span class="terms-highlight">3 hours</span> of consultancy per month at no additional cost. Code change requests estimated at under <span class="terms-highlight">6 hours</span> are carried out at no charge. Larger changes are scoped and priced on a case-by-case basis.</td></tr>
       <tr><td>IP ownership</td><td>QuickLets retains full IP ownership of all software, documentation, conversations, and related materials.</td></tr>
       <tr><td>Inflation</td><td>Annual adjustment of <span class="terms-highlight">2%</span> or Malta HICP for preceding 12 months, whichever is lower. Applied on each anniversary of contract start date.</td></tr>
@@ -829,12 +856,12 @@ footer a:hover { color: var(--ember); }
           <div style="font-size:12px; color:var(--ash); line-height:1.4;">Net monthly saving<br>after ongoing fee</div>
         </div>
         <div style="background:var(--mist); padding:24px 20px;">
-          <div style="font-family:'Geist Mono',monospace; font-size:26px; font-weight:600; color:var(--ember); margin-bottom:4px;">~ 6 wks</div>
-          <div style="font-size:12px; color:var(--ash); line-height:1.4;">Setup cost payback<br>€6,000 ÷ €3,800/mo</div>
+          <div style="font-family:'Geist Mono',monospace; font-size:26px; font-weight:600; color:var(--ember); margin-bottom:4px;">~ 10 wks</div>
+          <div style="font-size:12px; color:var(--ash); line-height:1.4;">Setup cost payback<br>€9,000 ÷ €3,800/mo</div>
         </div>
         <div style="background:var(--coal); padding:24px 20px;">
-          <div style="font-family:'Geist Mono',monospace; font-size:26px; font-weight:600; color:var(--ember); margin-bottom:4px;">194%</div>
-          <div style="font-size:12px; color:rgba(245,247,250,0.5); line-height:1.4;">Year 1 ROI<br>€39,600 net on €20,400 invested</div>
+          <div style="font-family:'Geist Mono',monospace; font-size:26px; font-weight:600; color:var(--ember); margin-bottom:4px;">156%</div>
+          <div style="font-size:12px; color:rgba(245,247,250,0.5); line-height:1.4;">Year 1 ROI<br>€36,600 net on €23,400 invested</div>
         </div>
       </div>
       <p style="font-size:12px; color:var(--ash); margin-top:10px;">Based on 5,000 requests/month, 5 min manual handling each, at €12/hr. Actual savings will vary with volume.</p>
@@ -897,13 +924,13 @@ footer a:hover { color: var(--ember); }
 
 <!-- 08 LOOKING AHEAD -->
 <div class="page-section" id="ahead" style="padding: 0;">
-  <div class="container" style="padding-bottom: 40px;">
+  <div class="container">
     <div class="eyebrow">§ 08 - Looking Ahead</div>
     <h2>Just the beginning.</h2>
     <div class="rule"></div>
     <h3 style="color: var(--ember); margin-top: 0;">Six more automation opportunities identified</h3>
-    <p style="font-size: 16px; line-height: 1.75; margin-bottom: 20px; max-width: 600px;">This initiative is one of many automation opportunities that QuickLets can adopt to fundamentally transform its operations, efficiency, and profitability. QuickLets has already identified at least six other processes - including referrals and follow-ups - that are strong candidates for automation.</p>
-    <p style="font-size: 16px; line-height: 1.75; max-width: 600px;">As a reliable, local partner with a deep understanding of the Maltese market, KVLR Code is well-positioned to support QuickLets throughout this transformation - bringing technical expertise, responsiveness, and long-term commitment.</p>
+    <p style="font-size: 16px; line-height: 1.75; margin-bottom: 20px;">This initiative is one of many automation opportunities that QuickLets can adopt to fundamentally transform its operations, efficiency, and profitability. QuickLets has already identified at least six other processes - including referrals and follow-ups - that are strong candidates for automation.</p>
+    <p style="font-size: 16px; line-height: 1.75;">As a reliable, local partner with a deep understanding of the Maltese market, KVLR Code is well-positioned to support QuickLets throughout this transformation - bringing technical expertise, responsiveness, and long-term commitment.</p>
   </div>
   
   <div style="height: 4px; background: var(--ember);"></div>
@@ -931,7 +958,8 @@ footer a:hover { color: var(--ember); }
         <div class="contact-info">
           <div class="contact-name">John Ellul</div>
           <div class="contact-role">Co-Founder, KVLR Code &amp; Veracloud</div>
-          <a href="mailto:jellul@kvlrcode.com">jellul@kvlrcode.com</a>
+          <a href="mailto:jellul@veracloud.eu">jellul@veracloud.eu</a>
+              <a href="tel:+35679709171">+356 7970 9171</a>
         </div>
       </div>
       <div class="contact-card">
@@ -940,6 +968,7 @@ footer a:hover { color: var(--ember); }
           <div class="contact-name">Andre Schembri</div>
           <div class="contact-role">Director of Engineering, KVLR Code</div>
           <a href="mailto:aschembri@kvlrcode.com">aschembri@kvlrcode.com</a>
+              <a href="tel:+35677016258">+356 7701 6258</a>
       </div>
     </div>
   </div>
