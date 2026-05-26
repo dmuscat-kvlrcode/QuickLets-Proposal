@@ -449,13 +449,62 @@ footer a:hover { color: var(--ember); }
   font-size: 14px; color: var(--ink); line-height: 1.6;
 }
 
+/* ── Mobile ──────────────────────────────────────────── */
 @media(max-width: 768px) {
+
+  /* Nav */
+  nav { padding: 0 20px; height: 52px; }
   nav ul { display: none; }
-  .container { padding: 56px 24px; }
+
+  /* Hero */
+  .hero { padding: 52px 0 40px; }
+  .hero-inner { padding: 0 20px; }
+  .hero-ql-logo { height: 72px; margin-bottom: 20px; }
+  .hero p { font-size: 15px; margin-bottom: 32px; }
+
+  /* Layout */
+  .container { padding: 44px 20px; }
+  .toc-divider-inner { padding: 0 20px; }
+  .toc-divider ol { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
+
+  /* Section type */
+  h2 { font-size: clamp(22px, 6vw, 32px); }
+  .lede { font-size: 15px; margin-bottom: 28px; }
+
+  /* Card grids — collapse to 1 column */
+  .card-grid { grid-template-columns: 1fr !important; }
+
+  /* Summary stats — keep as 2×2 */
+  .summary-stats-grid { grid-template-columns: 1fr 1fr !important; max-width: 100% !important; }
+
+  /* ROI strip — 2×2 */
+  .roi-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Why-us strip — 2 columns */
+  .why-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Pricing & contact */
   .pricing-grid { grid-template-columns: 1fr; }
+  .price-card { padding: 28px 20px; }
+  .price-value { font-size: 34px; }
   .contact-grid { grid-template-columns: 1fr; }
-  nav { padding: 0 24px; }
-  .phase-flow { padding-left: 32px; }
+
+  /* Dark highlight box */
+  .dark-box { padding: 24px 20px; }
+
+  /* Workflow steps */
+  .step { gap: 16px; }
+
+  /* Phase flow */
+  .phase-flow { padding-left: 28px; }
+
+  /* Tables — allow horizontal scroll */
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .terms-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .terms-table td:first-child { width: auto; white-space: normal; min-width: 110px; }
+
+  /* Footer */
+  footer { padding: 36px 20px; }
 }
 </style>
 </head>
@@ -546,7 +595,7 @@ footer a:hover { color: var(--ember); }
     <p style="font-size: 16px; line-height: 1.75; margin-bottom: 48px;">KVLR Code proposes a purpose-built AI Agent that initiates WhatsApp conversations with property owners, captures structured availability responses, and writes results directly back to the CRM - automatically, at scale, with agents involved only when genuinely needed.</p>
 
     <h3 style="margin-bottom: 16px;">Pricing and ROI</h3>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 0 auto 48px; max-width: 720px; background: var(--steel); border: 1px solid var(--steel);">
+    <div class="summary-stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 0 auto 48px; max-width: 720px; background: var(--steel); border: 1px solid var(--steel);">
       <div style="background: var(--mist); padding: 24px 20px; text-align: center;">
         <div style="font-family: 'Geist Mono', monospace; font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 4px;">€ 9,000</div>
         <div style="font-size: 12px; color: var(--ash);">One-time setup · Ex. VAT</div>
@@ -587,7 +636,7 @@ footer a:hover { color: var(--ember); }
     <h2>A structural bottleneck.</h2>
     <div class="rule"></div>
     <p class="lede">QuickLets relies on manual outreach to confirm property availability - a process that works, but has become a ceiling on growth. As the portfolio expands, the overhead scales linearly with it.</p>
-    <p class="lede">In practice, agents spend a significant share of their day placing individual calls to property owners, chasing unanswered calls, transcribing responses, and updating the CRM by hand. The cost is felt across three dimensions:</p>
+    <p class="lede">In practice, agents spend a significant share of their day placing individual calls to property owners, chasing unanswered calls, transcribing responses, and updating the CRM by hand. The cost is felt across four dimensions:</p>
     <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
       <div class="card">
         <div class="card-num">01 - Capacity</div>
@@ -744,9 +793,30 @@ footer a:hover { color: var(--ember); }
       <li>Owner self-service portal for direct availability updates</li>
       <li>Migration or back-population of historical availability data</li>
       <li>Workflow automations beyond availability confirmation - such as referrals and follow-ups</li>
-      <li>WhatsApp messaging fees, billed directly to QuickLets by META</li>
       <li>Hosting costs, as the solution is hosted on QuickLets' own infrastructure</li>
     </ul>
+
+    <div style="margin: 28px 0; border: 1px solid var(--steel); border-left: 3px solid var(--ember); background: var(--mist);">
+      <div style="padding: 14px 24px; border-bottom: 1px solid var(--steel);">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ember);">Third-party costs · Billed directly to QuickLets</span>
+      </div>
+      <div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--steel); flex-shrink: 0;">×</span>
+          <div>
+            <span style="font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink);">WhatsApp Messaging Fees</span>
+            <span style="font-size: 13px; color: var(--ash); margin-left: 10px;">Charged per conversation by Meta</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: baseline;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--steel); flex-shrink: 0;">×</span>
+          <div>
+            <span style="font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink);">AI / LLM Usage Fees</span>
+            <span style="font-size: 13px; color: var(--ash); margin-left: 10px;">Charged per token by the model provider</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <p>Where relevant, KVLR Code is available to support with additional building and assistance under a separate quotation.</p>
   </div>
 </div>
@@ -826,7 +896,7 @@ footer a:hover { color: var(--ember); }
         <div class="price-label">Per month · Ex. VAT</div>
         <div class="price-value">€ 1,200</div>
         <div class="price-title">Ongoing Operation</div>
-        <p class="price-desc">Monitoring, AI optimisation, support, conversation-flow refinement, and continuous improvements. Includes up to 5,000 owner conversations per calendar month. Extra conversations above this volume are billed separately.</p>
+        <p class="price-desc">Monitoring, AI optimisation, support, conversation-flow refinement, and continuous improvements. No limit on owner conversation volume.</p>
       </div>
     </div>
     
@@ -836,7 +906,8 @@ footer a:hover { color: var(--ember); }
       <tr><td>Contract term</td><td>Initial term of <span class="terms-highlight">2 years</span>. Handover to QuickLets commences <span class="terms-highlight">6 months</span> before the end of the term. At QuickLets' discretion, KVLR Code is available to continue maintaining and operating the solution beyond the initial term under a renewed arrangement.</td></tr>
       <tr><td>Payment - Setup</td><td><span class="terms-highlight">60%</span> within 2 weeks of contract signature · <span class="terms-highlight">40%</span> within 2 weeks of UAT handover</td></tr>
       <tr><td>Payment - Ongoing</td><td><span class="terms-highlight">100%</span> within 1 week of each month-end</td></tr>
-      <tr><td>WhatsApp fees</td><td>Billed directly to QuickLets by META - not included in the above</td></tr>
+      <tr><td>WhatsApp fees</td><td>Billed directly to QuickLets by META · not included in the above</td></tr>
+      <tr><td>AI / LLM fees</td><td>Charged per token by the model provider, billed directly to QuickLets · not included in the above</td></tr>
       <tr><td>Inflation</td><td>Annual adjustment of <span class="terms-highlight">2%</span> or Malta HICP for preceding 12 months, whichever is lower. Applied on each anniversary of contract start date.</td></tr>
       <tr><td>Hosting</td><td>Solution hosted on QuickLets' own infrastructure - hosting costs not included</td></tr>
       <tr>
@@ -868,7 +939,7 @@ footer a:hover { color: var(--ember); }
     </table>
     <div style="margin-top: 48px;">
       <p style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ash); margin-bottom:16px;">Return on Investment · Indicative</p>
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--steel); border:1px solid var(--steel);">
+      <div class="roi-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--steel); border:1px solid var(--steel);">
         <div style="background:var(--mist); padding:24px 20px; text-align:center;">
           <div style="font-family:'Geist Mono',monospace; font-size:26px; font-weight:600; color:var(--ink); margin-bottom:4px;">€ 5,000</div>
           <div style="font-size:12px; color:var(--ash); line-height:1.4;">Current monthly cost<br>5,000 requests × 5 min × €12/hr</div>
@@ -914,7 +985,7 @@ footer a:hover { color: var(--ember); }
     <div class="rule"></div>
     <p class="lede">QuickLets deserves more than a vendor - a committed local partner who understands the market, has the track record, and will be there beyond go-live.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin: 32px 0 40px; background: var(--steel); border: 1px solid var(--steel);">
+    <div class="why-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin: 32px 0 40px; background: var(--steel); border: 1px solid var(--steel);">
       <div class="card">
         <div style="color: var(--ink); margin-bottom: 16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
         <div class="card-title">Local &amp; Reputable</div>
