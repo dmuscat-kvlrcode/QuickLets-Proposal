@@ -816,6 +816,13 @@ footer a:hover { color: var(--ember); }
             <div style="font-size: 13px; color: var(--ash);">Charged per token by the model provider</div>
           </div>
         </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--steel); flex-shrink: 0; padding-top: 2px;">×</span>
+          <div>
+            <div style="font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 2px;">Hosting &amp; Infrastructure</div>
+            <div style="font-size: 13px; color: var(--ash);">Solution hosted on QuickLets' own infrastructure</div>
+          </div>
+        </div>
       </div>
       <div style="padding: 16px 24px; border-top: 1px solid var(--steel); display: flex; flex-direction: column; gap: 10px;">
         <div style="display: flex; align-items: baseline; gap: 8px;">
@@ -923,8 +930,8 @@ footer a:hover { color: var(--ember); }
       <tr><td>Payment - Ongoing</td><td><span class="terms-highlight">100%</span> within 1 week of each month-end</td></tr>
       <tr><td>WhatsApp fees</td><td>Billed directly to QuickLets by META · not included in the above</td></tr>
       <tr><td>AI / LLM fees</td><td>Charged per token by the model provider, billed directly to QuickLets · not included in the above</td></tr>
+      <tr><td>Hosting fees</td><td>Solution hosted on QuickLets' own infrastructure - hosting costs not included</td></tr>
       <tr><td>Inflation</td><td>Annual adjustment of <span class="terms-highlight">2%</span> or Malta HICP for preceding 12 months, whichever is lower. Applied on each anniversary of contract start date.</td></tr>
-      <tr><td>Hosting</td><td>Solution hosted on QuickLets' own infrastructure - hosting costs not included</td></tr>
       <tr>
         <td>SLA</td>
         <td>
@@ -972,7 +979,12 @@ footer a:hover { color: var(--ember); }
           <div style="font-size:12px; color:rgba(245,247,250,0.5); line-height:1.4;">Year 1 ROI<br>€36,600 net on €23,400 invested</div>
         </div>
       </div>
-      <p style="font-size:12px; color:var(--ash); margin-top:10px;">Based on an assumed volume of 5,000 requests/month - estimated at ~8% of yearly outreaches resulting in stale availability, across a base of 500,000 annual interactions. Manual handling assumed at 5 min per request at €12/hr. Actual savings will vary with volume.</p>
+      <ul style="margin-top:10px; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px;">
+        <li style="font-size:12px; color:var(--ash); display:flex; gap:8px; align-items:baseline;"><span style="font-family:'Geist Mono',monospace; color:var(--ember); font-size:10px; flex-shrink:0;">–</span>Based on an assumed volume of 5,000 requests/month, estimated at ~8% of yearly outreaches resulting in stale availability across a base of 500,000 annual interactions</li>
+        <li style="font-size:12px; color:var(--ash); display:flex; gap:8px; align-items:baseline;"><span style="font-family:'Geist Mono',monospace; color:var(--ember); font-size:10px; flex-shrink:0;">–</span>Manual handling assumed at 5 min per request at €12/hr</li>
+        <li style="font-size:12px; color:var(--ash); display:flex; gap:8px; align-items:baseline;"><span style="font-family:'Geist Mono',monospace; color:var(--ember); font-size:10px; flex-shrink:0;">–</span>Actual savings will vary with volume</li>
+        <li style="font-size:12px; color:var(--ash); display:flex; gap:8px; align-items:baseline;"><span style="font-family:'Geist Mono',monospace; color:var(--ember); font-size:10px; flex-shrink:0;">–</span>ROI excludes third-party costs (WhatsApp, AI / LLM, and hosting fees), billed directly to QuickLets</li>
+      </ul>
     </div>
   </div>
 </div>
